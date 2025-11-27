@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Optimized for Samsung A12 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="Personal Countdown Timer">
+    
+    <!-- Links to the manifest for the app icon -->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <title>Time</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #1a1a1a;
+            color: #00ffcc;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; 
+            margin: 0;
+            padding: 20px; 
+            overflow: hidden; /* Prevents scrolling */
+        }
+
+        .container {
+            background-color: #2d2d2d;
+            width: 100%;
+            max-width: 400px; 
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px;
+            width: 100%;
+        }
+
+        .time-unit {
+            background-color: #383838;
+            padding: 15px 10px;
+            border-radius: 12px;
+            border: 1px solid #444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .number {
+            font-size: 2.2rem; 
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="timer-grid">
+            <div class="time-unit">
+                <span id="days" class="number">0</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-unit">
+                <span id="hours" class="number">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-unit">
+                <span id="minutes" class="number">00</span>
+                <span class="label">Mins</span>
+            </div>
+            <div class="time-unit">
+                <span id="seconds" class="number">00</span>
+                <span class="label">Secs</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Logic: Counts UP from the start date
+        function updateTimer() {
+            const startDate = new Date("2025-10-25T12:18:00");
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        // Register the Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+            .then(() => console.log('Service Worker Loaded'))
+            .catch((err) => console.log('SW Error:', err));
+        }
+    </script>
+</body>
+</html>
