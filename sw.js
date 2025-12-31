@@ -1,4 +1,4 @@
-const CACHE_NAME = 'waiting-app-v1.0';
+const CACHE_NAME = 'waiting-app-v1.1';
 const urlsToCache = [
   './',
   './index.html',
