@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
+    color: #00ffcc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px 0 rgba(0, 255, 204, 0.2);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+}
+
+.start-date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+#timer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.box {
+    background: rgba(0, 255, 204, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 90px;
+    border: 2px solid rgba(0, 255, 204, 0.3);
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 255, 204, 0.4);
+}
+
+.box span {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.box label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+.install-button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #00ffcc 0%, #00d4aa 100%);
+    color: #0d0d0d;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.install-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 255, 204, 0.5);
+}
+
+.install-button:active {
+    transform: scale(0.95);
+}
+
+.status {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+@media (max-width: 500px) {
+    h1 { font-size: 1.8rem; }
+    .box { min-width: 70px; padding: 15px; }
+    .box span { font-size: 2rem; }
+    .container { padding: 1.5rem; }
+}
