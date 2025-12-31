@@ -1,0 +1,48 @@
+body {
+    background: #0d0d0d;
+    color: #00ffcc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+#timer {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.box {
+    background: rgba(0, 255, 204, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 80px;
+}
+.box span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.box label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #888;
+}
+#installBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #00ffcc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
