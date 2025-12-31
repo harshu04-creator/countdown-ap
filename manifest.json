@@ -1,0 +1,19 @@
+{
+  "name": "Waiting App - Time Tracker 2026",
+  "short_name": "WaitingApp",
+  "description": "Track time elapsed since Jan 1, 2026",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#00ffcc",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
